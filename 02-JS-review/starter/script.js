@@ -146,7 +146,7 @@ function getBook(id) {
 // Destructuring Objects and Arrays
 // OBJECTS
 
-const book = getBook(2);
+const book = getBook(1);
 book;
 // const title = book.title;
 // const author = book.author;
@@ -164,6 +164,26 @@ console.log(author, title, genres);
 // ARRAYS
 // const primaryGenres = genres[0];
 // const secondaryGenres = genres[1];
-const [primaryGenres, secondaryGenres] = genres;
+// const [primaryGenres, secondaryGenres] = genres;
 
-console.log(primaryGenres, secondaryGenres);
+// console.log(primaryGenres, secondaryGenres);
+
+// Rest Operator
+const [primaryGenres, secondaryGenres, ...otherGenres] = genres;
+console.log(primaryGenres, secondaryGenres, otherGenres);
+
+// Spread Operator
+// Array
+const newGenres = [...genres, "epic fantasy"];
+console.log(newGenres);
+
+// Object
+const updatedBook = {
+  ...book,
+  // Adding a new property
+  moviePublicationDate: "2001-12-19",
+
+  // Overwriting an existing property
+  pages: 1210,
+};
+updatedBook;
