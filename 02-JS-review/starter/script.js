@@ -146,7 +146,7 @@ function getBook(id) {
 // Destructuring Objects and Arrays
 // OBJECTS
 
-const book = getBook(1);
+const book = getBook(2);
 book;
 // const title = book.title;
 // const author = book.author;
@@ -191,5 +191,10 @@ updatedBook;
 // Template Literal
 const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${
   publicationDate.split("-")[0]
-}`;
+}. The book has ${hasMovieAdaptation ? "" : "no"} been adapted as a movie`;
 summary;
+
+// Ternaries Instead of if/else Statements
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
+console.log(`The book has ${pagesRange} pages`);
