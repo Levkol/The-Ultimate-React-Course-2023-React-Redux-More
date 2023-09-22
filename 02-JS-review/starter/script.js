@@ -146,13 +146,14 @@ function getBook(id) {
 // Destructuring Objects and Arrays
 // OBJECTS
 
+/*
 const book = getBook(3);
 book;
 // const title = book.title;
 // const author = book.author;
 
-/*So we would have to write one line of code for each of these properties. So that's really not ideal.
-So at Object Destructuring, we can simply create. */
+// So we would have to write one line of code for each of these properties. So that's really not ideal.
+// So at Object Destructuring, we can simply create.
 
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   book;
@@ -247,3 +248,36 @@ function getTotalReviewCount(book) {
   return goodreads + librarything;
 }
 console.log(getTotalReviewCount(book));
+*/
+
+// The Array map Method
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount;
+  librarything;
+  return goodreads + librarything;
+}
+
+const books = getBooks();
+books;
+
+const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+console.log(x);
+
+const titles = books.map((book) => book.title);
+titles;
+
+// const essentialData = books.map((book) => {
+//   return {
+//     title: book.title,
+//     author: book.author,
+//   };
+// });
+// essentialData;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReviewCount(book),
+}));
+essentialData;
